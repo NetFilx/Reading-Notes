@@ -8,12 +8,12 @@
 2. InputStream类型
 
    ​
-|            类            |                    功能                    |               构造器参数<br>使用                |
+|            类            |                    功能                    |                 构造器参数使用                  |
 | :---------------------: | :--------------------------------------: | :--------------------------------------: |
-|  ByteArrayInputStream   |         允许将内存的缓冲区当作InputStream使用         | 缓冲区，字节将从中取出<br>作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
-| StringBufferInputStream |          将String转换成InputStream           | 字符串，底层实现使用StringBuffer<br>作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
-|     FileInputStream     |                用于从文件中读取信息                |         缓冲区，字节将从中取出<br>作为一种数据源：          |
-|    PipedInputStream     |  产生用于写入相关PipedOutputStream的数据，实现“管道化”概念  | PipedOutputStream<br>作为多线程中的数据源：将其与FilterInputStream对象相连以提供有用接口 |
-|  SequenceInputeStream   |        将两个或者多个InputStream对象转化成单个         | 两个InputStream对象或者一个容纳InputStream对象容器的Enumeration<br>作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
+|  ByteArrayInputStream   |         允许将内存的缓冲区当作InputStream使用         | 缓冲区，字节将从中取出 作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
+| StringBufferInputStream |          将String转换成InputStream           | 字符串，底层实现使用StringBuffer   作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
+|     FileInputStream     |                用于从文件中读取信息                | 缓冲区，字节将从中取出作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
+|    PipedInputStream     |  产生用于写入相关PipedOutputStream的数据，实现“管道化”概念  | PipedOutputStream   作为多线程中的数据源：将其与FilterInputStream对象相连以提供有用接口 |
+|  SequenceInputeStream   |        将两个或者多个InputStream对象转化成单个         | 两个InputStream对象或者一个容纳InputStream对象容器的Enumeration  作为一种数据源：将其与FilterInputStream对象相连以提供有用接口 |
 |    FilterInputStream    | 抽象类，作为“装饰器”的接口。其中“装饰器”为其他的InputStream类提供有用的功能 |           见FilterInputStream表            |
 
