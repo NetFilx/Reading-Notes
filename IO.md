@@ -3,8 +3,8 @@
 2. 使用FilenameFilter或者FileFilter过滤文件，两者区别是方法传递的参数不同，FilenameFilter效率略高，过滤的时候一般结合正则表达式使用
 
 # 输入和输出
-- 任何自InputStream或Reader派生的类都包含有名字为read的方法，用于读取单个字节或者字节数组，同样自OutputStream或Writer派生的类都有write方法，用于写单个字节或者字节数组
-- InputStream的类型
+1. 任何自InputStream或Reader派生的类都包含有名字为read的方法，用于读取单个字节或者字节数组，同样自OutputStream或Writer派生的类都有write方法，用于写单个字节或者字节数组
+2. InputStream的类型
 
 |            类            |                    功能                    |                 构造器参数使用                  |
 | :---------------------: | :--------------------------------------: | :--------------------------------------: |
