@@ -158,3 +158,42 @@ public static void main(String[] args) throws IOException {
 
 - 如果使用DataOutputStream写入数据，Java保证我们可以使用DataInputStream准确地读取数据
 
+6. 读取而进制文件
+
+```Java
+BufferedInputStream bf = new BufferedInputStream(new FileInputStream(file));
+try{
+   byte[] data = new byte[bf.available()];
+   bf.read(data);
+   return data;
+}finally {
+   bf.close();
+}
+```
+
+# 标准IO
+
+1. 标准IO指的是System.out,System.in,System.err三个
+
+
+2. 可以将标准I/O进行重定向，有些时候这些操作很有价值，方法如下
+
+   - setIn(InputStream)
+   - setOut(PrintStream)
+   - setErr(PrintStream)
+
+   比如可以给setIn赋值一个文件输入流，这样的话使用System.in的时候就会从文件中读取信息
+
+
+# 新IO
+
+1. 速度的提高来自所使用的结构更接近于操作系统执行IO的方式：通道和缓冲器，我们可以吧它想象成一个煤矿，通道时一个包含煤层（数据）的矿藏，而缓冲器则是派送到矿藏的卡车。卡车满载而归，我们再从卡车上获取煤炭，也就是说我们没有直接喝通道交互，我们只是和缓冲器交互，并把缓冲器派送到通道。通道要么从缓冲器获得数据，要么发送数据
+2. FileInputStream和FileOutputStream以及RandomAccessFile这三个类被修改了，以产生FileChannel。Reader 和Writer这种字符模式不能用于产生通道，但是可以用java.nio.channels.Channel类提供的方法，用以在通道中产生Reader和Writer
+3. 唯一直接与通道交互的缓冲器时ByteBuffer，并且我们只能创建一个独立的基本类型缓冲器，或者使用as方法从ByteBuffer中获得。也就是说，我们不能把基本类型的缓冲器转换成ByteBuffer。然而，由于我们可以经过视图缓冲器将基本类型数据移进移出ByteBuffer，所以这个也不是什么真正的限制了
+4. 如果想把一个字节数组写到文件中去，那么久应该使用ByteBuffer.wrap()方法把字节数组包装起来，然后用getChannel()方法在FileOutputStream上打开一个通道，接着将来自于ByteBuffer的数据写到FileChannel中
+5. 采用映射文件的方式实现读写，整体上可以很显著地提升性能，即使建立映射文件花费很大。一般我们只是对极大的文件进行这样的操作
+
+
+# 序列化
+
+1. 要序列化一个对象（实现了Serializable），首先要创建某些OutputStream对象，然后将其封装在ObjectOutputStream对象内，此时只需要调用writeObject即可将对象序列化，并将其发送给OutputStream（对象序列化是基于字节的，所以需要用到InputStream和OutputStream）反序列化的话，需要将一个InputStream封装在ObjectInputStream内，然后调用readObject即可
