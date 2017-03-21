@@ -197,3 +197,7 @@ try{
 # 序列化
 
 1. 要序列化一个对象（实现了Serializable），首先要创建某些OutputStream对象，然后将其封装在ObjectOutputStream对象内，此时只需要调用writeObject即可将对象序列化，并将其发送给OutputStream（对象序列化是基于字节的，所以需要用到InputStream和OutputStream）反序列化的话，需要将一个InputStream封装在ObjectInputStream内，然后调用readObject即可
+2. 特殊情况下可以通过实现Externalizable代替Serializable，来对序列化过程进行控制，实现writeExternal，readExternal，即可控制
+3. 使用transient，可以不序列化某个字段，一些敏感字段的信息就可以使用这个关键字，比如密码。即使对象中某个信息时private属性的，一经序列化处理，人们还是可以有方法访问到它（街区网络传输之类的），当然也可以使用上面的Externalizable自定义序列化的行为
+4. 如果我们需要保存整个系统的状态，我们最安全的方式是将其作为“原子”操作进行序列化。如我们可以将构成系统状态的所有对象都置入单一容器中，并在一个操作中将该容器直接写出。然后同样只需要一次方法调用，即可将其恢复
+5. 静态对象的序列化需要调用serializeStaticState和deserializeStaticState实现序列化
