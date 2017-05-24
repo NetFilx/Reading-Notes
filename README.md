@@ -26,9 +26,11 @@
 
 [6.消息中间件](https://netfilx.github.io/Reading-Notes/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E7%B3%BB%E7%BB%9F%E4%B8%8EJava%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%9E%E8%B7%B5/6.%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/)
 
+[7.软负载中心与集中配置管理](https://netfilx.github.io/Reading-Notes/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E7%B3%BB%E7%BB%9F%E4%B8%8EJava%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%9E%E8%B7%B5/7.%E8%BD%AF%E8%B4%9F%E8%BD%BD%E4%B8%AD%E5%BF%83%E4%B8%8E%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/)
 
+## Netty In Action
 
-
+[1.Netty—异步和事件驱动]()
 
 
 
